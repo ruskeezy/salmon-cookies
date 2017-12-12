@@ -1,5 +1,7 @@
 var storeHours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm']
 
+
+
 function getSales(storeName) {
   return Math.floor(storeName.hourlyCustomers(storeName.maxCust, storeName.minCust) * storeName.cookieAVG);
 }
@@ -60,3 +62,44 @@ function getHourlies(store) {
   }
   console.log(store);
 }
+
+
+function makeHTML() {
+  var container = document.createElement('div');
+  container.innerHTML = '<p>' + pike.hourlies + '</p>';
+  container.innerHTML = '<p>' + seaTac.hourlies + '</p>';
+  container.innerHTML = '<p>' + seaCenter.hourlies + '</p>';
+  container.innerHTML = '<p>' + capHill.hourlies + '</p>';
+  container.innerHTML = '<p>' + alki.hourlies + '</p>';
+
+
+  document.body.appendChild(container);
+
+  var list = document.createElement('ul');
+  var listArr = [];
+
+  for (var i = 0; i < pike.hourlies.length; i++) {
+    listArr.push('<li>' + pike.hourlies[i] + '</li>');
+  }
+
+  for (var i = 0; i < seaTac.hourlies.length; i++) {
+    listArr.push('<li>' + seaTac.hourlies[i] + '</li>');
+  }
+
+  for (var i = 0; i < seaCenter.hourlies.length; i++) {
+    listArr.push('<li>' + seaCenter.hourlies[i] + '</li>');
+  }
+
+  for (var i = 0; i < capHill.hourlies.length; i++) {
+    listArr.push('<li>' + capHill.hourlies[i] + '</li>');
+  }
+
+  for (var i = 0; i < alki.hourlies.length; i++) {
+    listArr.push('<li>' + alki.hourlies[i] + '</li>');
+  }
+
+  var fullList = listArr.join('');
+  list.innerHTML = fullList;
+  document.body.appendChild(list);
+}
+makeHTML();
