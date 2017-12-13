@@ -1,18 +1,28 @@
 'use strict';
 
+// arrays and functions
+
 var storeHours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 var storeLocations = [];
 var storeTable = document.getElementById('stores')
 
-function Store(name, minCustsPerHour, maxCustsPerHour, avgCookiesPerCust, tableId) {
+
+function renderStoreRows(){
+  for(var i=0; i < storeLocations.length; i++){
+    storeLocations[i].render();
+  }
+}
+
+
+function Store(name, minCustsPerHour, maxCustsPerHour, avgCookiesPerCust) {
   this.name = name;
   this.minCustsPerHour = minCustsPerHour;
   this.maxCustsPerHour = maxCustsPerHour;
   this.avgCookiesPerCust = avgCookiesPerCust;
-  this.tableId = tableId;
   this.custsEachHour = [];
   this.cookiesEachHour = [];
   this.totalDailySales = 0;
+  storeLocations.push(this);
   this.calcCustsEachHour = function(){
     for(var i = 0; i < storeHours.length; i++){
       this.custsEachHour.push(this.minCustsPerHour, this.maxCustsPerHour);
@@ -29,18 +39,21 @@ function Store(name, minCustsPerHour, maxCustsPerHour, avgCookiesPerCust, tableI
     };
   };
   this.render = function(){
+    this.calcCookiesEachHour();
     var trEl = document.createElement('tr');
     var tdEl = document.createElement('td');
     tdEl.textContent = this.name;
     trEl.appendChild(tdEl);
-    for(var i = 0; i < this.cookiesEachHour.length; i++){
+
+
+    for(var i = 0; i < storeHours.length; i++){
       tdEl = document.createElement('td');
       tdEl.textContent = this.cookiesEachHour[i];
       trEl.appendChild(tdEl);
     };
+
     storeTable.appendChild(trEl);
   };
-  storeLocations.push(this);
 };
 
 new Store('1st and Pike', 23, 65, 6.3, 'pike');
@@ -49,11 +62,7 @@ new Store('Seattle Center', 11, 38, 3.7, 'sc');
 new Store('Capitol Hill', 20, 38, 2.3, 'cap-hill');
 new Store('Alki Beach', 2, 16, 4.6, 'alki');
 
-function renderStoreRows(){
-  for(var i=0; i < storeLocations.length; i++){
-    storeLocations[i].render();
-  }
-}
+renderStoreRows();
 
 
 // var seatacAirport = {
