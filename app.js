@@ -36,9 +36,9 @@ function Store(name, minCustsPerHour, maxCustsPerHour, avgCookiesPerCust, tableI
     for(var i = 0; i < this.cookiesEachHour.length; i++){
       tdEl = document.createElement('td');
       tdEl.textContent = this.cookiesEachHour[i];
-      trEl.appendChild(tdEl)
-      storeTable.appendChild(trEl);
+      trEl.appendChild(tdEl);
     };
+    storeTable.appendChild(trEl);
   };
   storeLocations.push(this);
 };
