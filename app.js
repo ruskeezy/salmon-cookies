@@ -19,7 +19,7 @@ function randNum(min, max){
 
 // store constructor function
 
-function Store(name, minCustsPerHour, maxCustsPerHour, avgCookiesPerCust) {
+function Store(name, minCustsPerHour, maxCustsPerHour, avgCookiesPerCust){
   this.name = name;
   this.minCustsPerHour = minCustsPerHour;
   this.maxCustsPerHour = maxCustsPerHour;
@@ -75,7 +75,7 @@ new Store('Alki Beach', 2, 16, 4.6, 'alki');
 
 // header function
 
-function renderHeader() {
+function renderHeader(){
   var thEl = document.createElement('th');
   var trEl = document.createElement('tr');
   thEl.textContent = 'Location';
