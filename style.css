@@ -31,12 +31,8 @@ h2 a {
   text-decoration: none;
 }
 
-#locations {
-  text-align: center;
-}
-
-#products {
-  text-align: center;
+img {
+  border-radius: 10px;
 }
 
 #header {
@@ -47,10 +43,23 @@ h2 a {
   text-align: center;
 }
 
+
+#products {
+  text-align: center;
+}
+
+#locations {
+  text-align: center;
+}
+
 footer {
   border: 1px black;
 }
 
 ul {
  list-style: none;
+}
+
+#extras {
+  text-align: center;
 }
