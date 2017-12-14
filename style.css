@@ -1,8 +1,56 @@
-* {
-  font-family: 'Helvetica', sans-serif;
-  color: navy;
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  line-height: 1.42em;
+  color:#A7A1AE;
+  background-color:#1F2739;
 }
 
-body {
-  background: #ccc;
+h1 {
+  font-size:3em;
+  font-weight: 300;
+  line-height:1em;
+  text-align: center;
+  color: #4DC3FA;
+}
+
+h2 {
+  font-size:1em;
+  font-weight: 300;
+  text-align: center;
+  display: block;
+  line-height:1em;
+  padding-bottom: 2em;
+  color: #FB667A;
+}
+
+h2 a {
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #FB667A;
+  text-decoration: none;
+}
+
+#locations {
+  text-align: center;
+}
+
+#products {
+  text-align: center;
+}
+
+#header {
+  text-align: center;
+}
+
+#cookie-info {
+  text-align: center;
+}
+
+footer {
+  border: 1px black;
+}
+
+ul {
+ list-style: none;
 }
