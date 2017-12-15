@@ -111,9 +111,9 @@ function formData(event) {
   event.preventDefault()
 
   var name = event.target.name.value;
-  var minCust = event.target.minCust.value;
-  var maxCust = event.target.maxCust.value;
-  var avgCookies = event.target.avgCookies.value;
+  var minCust = event.target.minCustsPerHour.value;
+  var maxCust = event.target.maxCustsPerHour.value;
+  var avgCookies = event.target.avgCookiesPerCust.value;
 
   data.push(new Store(name, minCust, maxCust, avgCookies));
   createTable();
