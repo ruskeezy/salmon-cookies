@@ -1,18 +1,38 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <title>Tuesday 12/12, Buildout of Monday lab</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+    <h1>Pat's Salmon Cookies</h1>
 
-<head>
-  <title>Tuesday 12/12, Buildout of Monday lab</title>
-  <link rel="stylesheet" type="text/css" href="style.css" />
-</head>
+    <h2>Table</h2>
+    <table id="stores"></table>
+    <form id="sample_form">
 
-<body>
-  <h1>Pat's Salmon Cookies</h1>
+  <fieldset>
+    <label for="store-name">Store Name:</label>
+    <input type="text" name="store-name" placeholder="Enter store name" minLength="1" required>
+  </fieldset>
 
-  <h2>Table</h2>
-  <table id="stores"></table>
+  <fieldset>
+    <label for="minimum-customers">Minimum Customers:</label>
+    <input type="number" name="minimum-customers" placeholder="Enter minimum customers" required>
+  </fieldset>
 
-  <script src="app.js"></script>
-</body>
+  <fieldset>
+    <label for="max-customers">Maximum Customers?</label>
+    <input type="number" name="max-customers" placeholder="Enter maximum customers" required>
+  </fieldset>
 
+  <fieldset>
+    <label for="avg-cookies">Interested in future courses?></label>
+    <input type="number" name="avg-cookies" placeholder="Enter average cookies" required>
+  </fieldset>
+
+  <button id="submit_btn" type="submit">Add Store</button>
+</form>
+    <script src="app.js"></script>
+  </body>
 </html>
