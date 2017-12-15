@@ -6,33 +6,40 @@
   </head>
   <body>
     <h1>Pat's Salmon Cookies</h1>
-
     <h2>Table</h2>
-    <table id="stores"></table>
-    <form id="sample_form">
+    <form id="store-form">
 
-  <fieldset>
-    <label for="store-name">Store Name:</label>
-    <input type="text" name="store-name" placeholder="Enter store name" minLength="1" required>
-  </fieldset>
+      <fieldset>
+        <label for="store-name">Store Name:</label>
+        <input type="text" name="store-name" placeholder="Enter store name" minLength="1" required>
+      </fieldset>
 
-  <fieldset>
-    <label for="minimum-customers">Minimum Customers:</label>
-    <input type="number" name="minimum-customers" placeholder="Enter minimum customers" required>
-  </fieldset>
+      <fieldset>
+        <label for="minimum-customers">Minimum Customers:</label>
+        <input type="number" name="minimum-customers" placeholder="Enter minimum customers" required>
+      </fieldset>
 
-  <fieldset>
-    <label for="max-customers">Maximum Customers?:</label>
-    <input type="number" name="max-customers" placeholder="Enter maximum customers" required>
-  </fieldset>
+      <fieldset>
+        <label for="max-customers">Maximum Customers:</label>
+        <input type="number" name="max-customers" placeholder="Enter maximum customers" required>
+      </fieldset>
 
-  <fieldset>
-    <label for="avg-cookies">Average Cookie Sales></label>
-    <input type="number" name="avg-cookies" placeholder="Enter average cookies" required>
-  </fieldset>
+      <fieldset>
+        <label for="avg-cookies">Average Cookie Sales></label>
+        <input type="number" name="avg-cookies" placeholder="Enter average cookies" step="any" min="0" required>
+      </fieldset>
 
-  <button id="submit_btn" type="submit">Add Store</button>
-</form>
+      <button id="submit_btn" type="submit">Add Store</button>
+    </form>
+
+    <section>
+  <table id="stores">
+    <tbody id="store-table">
+      <!-- content goes here -->
+    </tbody>
+  </table>
+</section>
+
     <script src="app.js"></script>
   </body>
 </html>
