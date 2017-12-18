@@ -1,18 +1,45 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <title>Tuesday 12/12, Buildout of Monday lab</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+    <h1>Pat's Salmon Cookies</h1>
+    <h2>Table</h2>
+    <form id="store-form">
 
-<head>
-  <title>Tuesday 12/12, Buildout of Monday lab</title>
-  <link rel="stylesheet" type="text/css" href="style.css" />
-</head>
+      <fieldset>
+        <label for="name">Store Name:</label>
+        <input type="text" name="name" placeholder="Enter store name" minLength="1" required>
+      </fieldset>
 
-<body>
-  <h1>Pat's Salmon Cookies</h1>
+      <fieldset>
+        <label for="minCustsPerHour">Minimum Customers:</label>
+        <input type="number" name="minCustsPerHour" placeholder="Enter minimum customers" required>
+      </fieldset>
 
-  <h2>Table</h2>
-  <table id="stores"></table>
+      <fieldset>
+        <label for="maxCustsPerHour">Maximum Customers:</label>
+        <input type="number" name="maxCustsPerHour" placeholder="Enter maximum customers" required>
+      </fieldset>
 
-  <script src="app.js"></script>
-</body>
+      <fieldset>
+        <label for="avgCookiesPerCust">Average Cookie Sales></label>
+        <input type="number" name="avgCookiesPerCust" placeholder="Enter average cookies" step="any" min="0" required>
+      </fieldset>
 
+      <button id="submit_btn" type="submit">Add Store</button>
+    </form>
+
+    <section>
+  <table id="stores">
+    <tbody id="store-table">
+      <!-- content goes here -->
+    </tbody>
+  </table>
+</section>
+
+    <script src="app.js"></script>
+  </body>
 </html>

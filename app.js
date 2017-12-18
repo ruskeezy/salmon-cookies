@@ -4,20 +4,12 @@
 
 var storeHours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 var storeLocations = [];
+var form = document.getElementById('store-form');
 var storeTable = document.getElementById('stores')
-
-
-function renderStoreRows(){
-  for(var i = 0; i < storeLocations.length; i++){
-    storeLocations[i].render();
-  }
-}
 
 function randNum(min, max){
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
-
-// store constructor function
 
 function Store(name, minCustsPerHour, maxCustsPerHour, avgCookiesPerCust){
   this.name = name;
@@ -65,15 +57,11 @@ function Store(name, minCustsPerHour, maxCustsPerHour, avgCookiesPerCust){
   };
 };
 
-// creating store instances
-
-new Store('1st and Pike', 23, 65, 6.3, 'pike');
-new Store('SeaTac Airport', 3, 24, 1.2, 'seatac');
-new Store('Seattle Center', 11, 38, 3.7, 'sc');
-new Store('Capitol Hill', 20, 38, 2.3, 'cap-hill');
-new Store('Alki Beach', 2, 16, 4.6, 'alki');
-
-// header function
+function renderStoreRows(){
+  for(var i = 0; i < storeLocations.length; i++){
+    storeLocations[i].render();
+  }
+}
 
 function renderHeader(){
   var thEl = document.createElement('th');
@@ -92,8 +80,6 @@ function renderHeader(){
 
   storeTable.appendChild(trEl)
 };
-
-// footer section
 
 function renderFooter(){
   var tdEl = document.createElement('td');
@@ -121,7 +107,49 @@ function renderFooter(){
   storeTable.appendChild(trEl);
 }
 
+function formData(event) {
+  event.preventDefault()
+
+  var name = event.target.name.value;
+  var minCust = event.target.minCustsPerHour.value;
+  var maxCust = event.target.maxCustsPerHour.value;
+  var avgCookies = event.target.avgCookiesPerCust.value;
+
+  new Store(name, minCust, maxCust, avgCookies);
+  createTable();
+  form.reset();
+};
+
+function createTable() {
+  var row;
+  for (var i = 0; i < storeLocations.length; i++){
+    row = document.createElement('tr');
+    row.innerHTML = '<td>' + storeLocations[i].name + '</td>' +
+      '<td>' + storeLocations[i].minCustsPerHour + '</td>' +
+      '<td>' + storeLocations[i].maxCustsPerHour + '</td>'
+      '<td>' + storeLocations[i].avgCookiesPerCust + '</td>'
+  };
+
+  storeTable.appendChild(row);
+};
+
+form.addEventListener('submit', formData);
+
+
+new Store('1st and Pike', 23, 65, 6.3, 'pike');
+new Store('SeaTac Airport', 3, 24, 1.2, 'seatac');
+new Store('Seattle Center', 11, 38, 3.7, 'sc');
+new Store('Capitol Hill', 20, 38, 2.3, 'cap-hill');
+new Store('Alki Beach', 2, 16, 4.6, 'alki');
+
+
+
+
+
+
+
 
 renderHeader();
 renderStoreRows();
 renderFooter();
+createTable();
