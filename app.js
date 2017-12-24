@@ -64,6 +64,7 @@ function renderStoreRows(){
 }
 
 function renderHeader(){
+  storeTable.innerHTML = '';
   var thEl = document.createElement('th');
   var trEl = document.createElement('tr');
   thEl.textContent = 'Location';
@@ -115,26 +116,14 @@ function formData(event) {
   var maxCust = event.target.maxCustsPerHour.value;
   var avgCookies = event.target.avgCookiesPerCust.value;
 
-  new Store(name, minCust, maxCust, avgCookies);
-  createTable();
+  new Store(name, parseInt(minCust), parseInt(maxCust), parseInt(avgCookies));
+  renderHeader();
+  renderStoreRows();
+  renderFooter();
   form.reset();
 };
 
-function createTable() {
-  var row;
-  for (var i = 0; i < storeLocations.length; i++){
-    row = document.createElement('tr');
-    row.innerHTML = '<td>' + storeLocations[i].name + '</td>' +
-      '<td>' + storeLocations[i].minCustsPerHour + '</td>' +
-      '<td>' + storeLocations[i].maxCustsPerHour + '</td>'
-      '<td>' + storeLocations[i].avgCookiesPerCust + '</td>'
-  };
-
-  storeTable.appendChild(row);
-};
-
 form.addEventListener('submit', formData);
-
 
 new Store('1st and Pike', 23, 65, 6.3, 'pike');
 new Store('SeaTac Airport', 3, 24, 1.2, 'seatac');
@@ -152,4 +141,3 @@ new Store('Alki Beach', 2, 16, 4.6, 'alki');
 renderHeader();
 renderStoreRows();
 renderFooter();
-createTable();
